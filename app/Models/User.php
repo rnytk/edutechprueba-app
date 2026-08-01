@@ -42,6 +42,31 @@ class User extends Authenticatable
         ];
     }
 
+
+    /*. --- RELATIONSHIPS --- */
+
+    // Agregar estas relaciones dentro de la clase User
+    public function school()
+    {
+        return $this->belongsTo(School::class);
+    }
+
+    public function academicDegree()
+    {
+        return $this->belongsTo(AcademicDegree::class);
+    }
+
+    public function moduleProgresses()
+    {
+        return $this->hasMany(UserModuleProgress::class);
+    }
+
+    public function activityAttempts()
+    {
+        return $this->hasMany(ActivityAttempt::class);
+    }
+
+
     /**
      * Get the user's initials
      */
