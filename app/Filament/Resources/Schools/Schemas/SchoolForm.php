@@ -13,17 +13,22 @@ class SchoolForm
         return $schema
             ->components([
                 TextInput::make('name')
-                    ->required(),
+                    ->label('Nombre del Colegio')
+                    ->required()
+                    ->maxLength(255),
                 TextInput::make('email')
-                    ->label('Email address')
+                    ->label('Correo Electrónico')
                     ->email()
-                    ->required(),
+                    ->maxLength(255),
                 TextInput::make('phone_number')
-                    ->tel(),
+                    ->label('Telefono')
+                    ->numeric()
+                    ->maxLength(8),
                 TextInput::make('address')
+                    ->label('Direccion')
                     ->required(),
                 Toggle::make('is_active')
-                    ->label('Activo')
+                    ->label('¿Está activo?')
                     ->default(true)
                     ->required(),
             ]);
