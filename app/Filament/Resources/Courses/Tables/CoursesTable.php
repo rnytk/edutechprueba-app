@@ -16,16 +16,18 @@ class CoursesTable
     {
         return $table
             ->columns([
+                ImageColumn::make('image_path')
+                    ->label('Portada')
+                    ->circular(),
                 TextColumn::make('title')
-                    ->searchable(),
-                ImageColumn::make('image_path'),
+                    ->label('Título')
+                    ->searchable()
+                    ->sortable(),
                 IconColumn::make('is_active')
+                    ->label('Activo')
                     ->boolean(),
                 TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('updated_at')
+                    ->label('Creado')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),

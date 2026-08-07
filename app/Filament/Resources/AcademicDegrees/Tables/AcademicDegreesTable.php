@@ -13,14 +13,13 @@ class AcademicDegreesTable
     public static function configure(Table $table): Table
     {
         return $table
-            ->columns([
+           ->columns([
                 TextColumn::make('name')
-                    ->searchable(),
+                    ->label('Grado Académico')
+                    ->searchable()
+                    ->sortable(),
                 TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('updated_at')
+                    ->label('Creado')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),

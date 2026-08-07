@@ -15,18 +15,20 @@ class SchoolsTable
     {
         return $table
             ->columns([
-                TextColumn::make('name')
-                    ->searchable(),
-                TextColumn::make('email')
-                    ->label('Email address')
-                    ->searchable(),
-                TextColumn::make('phone_number')
-                    ->searchable(),
+               TextColumn::make('name')
+                    ->label('Colegio')
+                    ->searchable()
+                    ->sortable(),
                 TextColumn::make('address')
+                    ->label('Direccion'),
+                TextColumn::make('email')
+                    ->label('Correo Electrónico')
                     ->searchable(),
                 IconColumn::make('is_active')
+                    ->label('Activo')
                     ->boolean(),
                 TextColumn::make('created_at')
+                    ->label('Creado')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),

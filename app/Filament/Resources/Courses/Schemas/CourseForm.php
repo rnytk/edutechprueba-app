@@ -15,13 +15,21 @@ class CourseForm
         return $schema
             ->components([
                 TextInput::make('title')
+                    ->label('Título del Curso')
+                    ->required()
+                    ->maxLength(255),
+                Toggle::make('is_active')
+                    ->label('¿Está activo?')
+                    ->default(true)
                     ->required(),
                 Textarea::make('description')
+                    ->label('Descripción')
                     ->columnSpanFull(),
                 FileUpload::make('image_path')
-                    ->image(),
-                Toggle::make('is_active')
-                    ->required(),
+                    ->label('Imagen de Portada')
+                    ->image()
+                    ->directory('courses') // Guarda las imágenes en storage/app/public/courses
+                    ->columnSpanFull(),
             ]);
     }
 }
